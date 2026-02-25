@@ -40,15 +40,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Alastair Tan Choon Wei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/alastair-tan-cw.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/alastair-tan-cw)]
+[[portfolio](team/alastair-tan-cw.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Testing
+* Responsibilities: Ensures the testing of the project is done properly and on time.
 
 ### James Doe
 
