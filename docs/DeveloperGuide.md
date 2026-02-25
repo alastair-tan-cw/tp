@@ -274,29 +274,63 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* NUS SOC students who collect many professional contacts (e.g. peers, seniors, alumni)
+* comfortable with using command-line interfaces to manage contacts
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: Helps NUS SoC students manage and recall networking contacts quickly by providing a structured, command-line address book tailored for technical users.
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
-
-*{More to be added}*
+| Priority | As a …​                                     | I want to …​                                    | So that I can…​                                               |
+|----------|--------------------------------------------|------------------------------------------------|--------------------------------------------------------------|
+| `* * *`  | new user                                   | see usage instructions                         | refer to instructions when I forget how to use the app       |
+| `* * *`  | new user                                   | add a new contact with name, phone number and email | store and connect with them                             |
+| `* * *`  | new user                                   | click on a contact link                        | view their social media page or company website              |
+| `* * *`  | new user                                   | edit contact details                           | update information without deleting and recreating contacts  |
+| `* * *`  | new user                                   | receive clear error messages                   | correct mistakes when I input invalid commands               |
+| `* * *`  | new user                                   | search a contact by name                       | find the person I’m connecting with quickly                  |
+| `* * *`  | new user                                   | view command functions                         | quickly recall available commands                            |
+| `* * *`  | organised user                             | add a tag to a contact                         | categorise people together                                   |
+| `* * *`  | organised user                             | create and delete my own tags                  | categorise contacts the way I like                           |
+| `* * *`  | organised user                             | list all contacts under a specific tag         | quickly see related connections                              |
+| `* * *`  | organised user                             | mark a contact as favourites                   | access important contacts quicker                            |
+| `* * *`  | organised user                             | remove a tag from a contact                    | re-categorise people                                         |
+| `* * *`  | organised user                             | rename a tag                                   | keep my tagging system consistent                            |
+| `* * *`  | organised user                             | sort contacts by company                       | view grouped workplace connections                           |
+| `* * *`  | organised user                             | view all existing tags                         | understand how contacts are categorised                      |
+| `* * *`  | expert user                                | filter contacts                                | find specific contacts I’m looking for                       |
+| `* *`    | user                                       | hide private contact details                   | minimise chance of someone seeing them accidentally          |
+| `* *`    | new user                                   | add comments (hobbies/interests)               | store more personal information                              |
+| `* *`    | new user                                   | have a login page                              | secure sensitive contact details                             |
+| `* *`    | new user                                   | undo my last action                            | rectify mistakes                                             |
+| `* *`    | new user                                   | see recently searched contacts                 | access frequently searched people easily                     |
+| `* *`    | new user                                   | see recently used commands                     | reuse common commands efficiently                            |
+| `* *`    | new user                                   | see suggested commands while typing            | know which command to use                                    |
+| `* *`    | organised user                             | colour code my tags                            | visually distinguish categories                              |
+| `* *`    | organised user                             | sort contacts alphabetically                   | browse contacts easier                                       |
+| `* *`    | expert user                                | archive inactive contacts                      | keep records without clutter                                 |
+| `* *`    | expert user                                | bulk edit multiple contacts                    | save time                                                    |
+| `* *`    | expert user                                | export contacts                                | back them up or use elsewhere                                |
+| `* *`    | expert user                                | import contacts in bulk                        | migrate networking list quickly                              |
+| `* *`    | expert user                                | search using partial keywords                  | avoid remembering exact spelling                             |
+| `* *`    | expert user                                | see date when contact was added                | recall when I met someone                                    |
+| `* *`    | networking-focused user                    | record notes about a contact                   | personalise future conversations                             |
+| `* *`    | networking-focused user                    | record where I met a contact                   | recall interaction context                                   |
+| `* *`    | networking-focused user                    | filter contacts by event name                  | reconnect with people from specific events                   |
+| `*`      | user with many persons in the address book | sort persons by name                           | locate a person easily                                       |
+| `*`      | expert user                                | bulk delete contacts matching criteria         | clean outdated data quickly                                  |
+| `*`      | expert user                                | change the interface colour                    | improve visibility                                           |
+| `*`      | expert user                                | combine multiple filters                       | narrow highly specific groups                                |
+| `*`      | expert user                                | view statistics about contacts                 | understand network trends                                    |
+| `*`      | expert user                                | recover deleted contacts                       | restore accidentally removed contacts                        |
+| `*`      | expert user                                | look for students who did certain internships  | network strategically                                        |
+| `*`      | expert user                                | match names to faces                           | identify people quickly                                      |
+| `*`      | expert user                                | list contacts added within a specific time period | follow up with recent connections                         |
+| `*`      | expert user                                | share contacts                                 | collaborate with others                                      |
+| `*`      | expert user                                | tag multiple contacts at once                  | group people efficiently                                     |
 
 ### Use cases
 
@@ -310,19 +344,55 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  User requests to list persons
 3.  AddressBook shows a list of persons
 
+**Use case: Add a new contact**
+
+**MSS**
+
+1.  User requests to add a new contact by using the valid command format
+2.  CLinkedin validates the provided contact details
+3.  CLinkedin adds the new contact to the bottom of the list
+4.  CLinkedin displays a success message with the newly added contact's details
+
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The user provided an invalid command format.
 
-  Use case ends.
+    * 2a1. CLinkedin shows an error message that the command format provided is invalid.
 
-* 3a. The given index is invalid.
+      Use case resumes at step 1.
 
-    * 3a1. AddressBook shows an error message.
+* 2b. The user provided a duplicate phone number that already exist in list.
 
-      Use case resumes at step 2.
+    * 2b1. CLinkedin shows an error message that the phone number already exists in list.
+
+      Use case resumes at step 1.
+
+**Use case: Delete a contact**
+
+**MSS**
+
+1.  User requests to delete a contact by entering the delete command along with the contact's index in list.
+2.  CLinkedin validates that the provided index is valid.
+3.  CLinkedin deletes the contact at the provided index in the list.
+4.  CLinkedin displays a success message that the contact has been deleted.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The user provided an index that does not exist in list.
+
+    * 2a1. CLinkedin shows an error message that the index is not in the list.
+
+      Use case resumes at step 1.
+
+* 2b. The user provided a non-integer index.
+
+    * 2b1. CLinkedin shows an error message that the command format provided is invalid.
+
+      Use case resumes at step 1.
 
 **Use case: Search for a contact**
 
@@ -354,13 +424,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+4. Should automatically save all changes to the local data file after each successful command.
+5. Should not crash when the user enters invalid input, and should display clear error messages instead. 
+6. Should store all data locally in a human-editable text file.
+7. Should not require an internet connection or any remote server to function. 
+8. Should be packaged into a single JAR file and should not require installation. 
+9. Should remain responsive (within 1 second) for common commands such as add, edit, delete, and find under typical usage. 
+10. Should follow object-oriented design principles to ensure maintainability and extensibility. 
+11. Should work properly on screen resolutions of 1920×1080 and above without layout issues.
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Contact**: A stored entry representing a person, consisting of fields such as name, phone, email, address/context, and tags.
+* **Command**: A single-line instruction typed into the command box that triggers an action (e.g., add, edit, find).
+* **Tag**: A short label used to categorise contacts (e.g., recruiter, careerfair2026, fintech). 
+* **Context (Meeting context)**: The user-entered text describing where/how the contact was met (e.g., “NUS Career Fair 2026”).
+* **Duplicate contact**: Two contacts considered the same entry based on the app’s duplicate rule (define your chosen rule here, e.g., same name + phone).
 
 --------------------------------------------------------------------------------------------------------------------
 
